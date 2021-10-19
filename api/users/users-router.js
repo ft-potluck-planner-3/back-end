@@ -27,7 +27,6 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/login', validReqBody, checkUsernameValid, checkPasswordValid, (req, res) => {
-
 })
 
 module.exports = router;

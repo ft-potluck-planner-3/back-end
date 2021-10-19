@@ -1,5 +1,6 @@
 const { JWT_SECRET } = require("../secrets"); 
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const Users = require('./users-model.js');
 
 
@@ -30,7 +31,7 @@ const checkUsernameExists = async (req, res, next) => {
 const checkRole = (req, res, next) => {
     const {role} = req.body
 
-    if (!role || !role.trim()) {
+    if (!role) {
         next({status: 422, message: "role required"})
     }
     else {
