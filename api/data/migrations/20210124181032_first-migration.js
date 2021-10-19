@@ -13,4 +13,3 @@ exports.down = async (knex) => {
 }
 
 
-//making changes
