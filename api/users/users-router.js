@@ -26,7 +26,9 @@ router.get('/:id', (req, res) => {
 })
 
 
-router.post('/login', validReqBody, checkUsernameValid, checkPasswordValid, (req, res) => {
-})
+router.post('/login', validReqBody, checkUsernameValid, checkPasswordValid, (req, res) => {})
+
+//for logout
+router.post('/logout', (req, res) => {})
 
 module.exports = router;
