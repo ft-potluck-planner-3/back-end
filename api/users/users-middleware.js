@@ -83,7 +83,9 @@ const checkPasswordValid = (req, res, next) => {
 
         res.status(200).json({
             message: `welcome, ${req.user.username}`,
-            token
+            token,
+            user_id: req.user.user_id,
+            role: req.role
         })
         next()
     }
