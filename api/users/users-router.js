@@ -29,6 +29,8 @@ router.get('/:id', (req, res) => {
 router.post('/login', validReqBody, checkUsernameValid, checkPasswordValid, (req, res) => {})
 
 //for logout
-router.post('/logout', (req, res) => {})
+router.post('/logout', (req, res) => {
+    res.json({message: "logout successful when token removed"})
+})
 
 module.exports = router;
