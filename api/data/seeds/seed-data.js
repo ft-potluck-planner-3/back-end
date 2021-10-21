@@ -30,7 +30,7 @@ const users = [
     },
     {
         user_id: 5,
-        username: "SamwiseGangee",
+        username: "Samwise",
         password: hash,
         role: "guest",
     },
