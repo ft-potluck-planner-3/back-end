@@ -28,6 +28,19 @@ const checkUsernameExists = async (req, res, next) => {
         }
 }
 
+const checkUserId = async (req, res, next) => {
+    const {id} = req.params
+
+    const user = await Users.findById(id)
+
+    if(!user){
+        next({status: 422, message: "no user with that id"});
+    }
+    else {
+        next();
+    }
+}
+
 const checkRole = (req, res, next) => {
     const {role} = req.body
 
@@ -82,6 +95,7 @@ const checkPasswordValid = (req, res, next) => {
 module.exports = {
     validReqBody,
     checkUsernameExists,
+    checkUserId,
     checkRole,
     checkUsernameValid,
     checkPasswordValid

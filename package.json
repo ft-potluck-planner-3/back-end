@@ -12,7 +12,9 @@
     "databaseh": "heroku pg:psql -a potluckplanner3 ",
     "seedh": "heroku run knex seed:run -a potluckplanner3 ",
     "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand",
-    "deploy": "git push heroku main"
+    "deploy": "git push heroku main",
+    "resetdb": "npm run rollback && npm run migrate && npm run seed",
+    "resethdb": "npm run rollbackh && npm run migrateh && npm run seedh"
   },
   "engines": {
     "node": "14.16.0",

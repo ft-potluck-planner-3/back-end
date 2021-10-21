@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const {validReqBody, checkUsernameExists, checkRole, checkUsernameValid, checkPasswordValid} = require('./users-middleware.js');
+const {validReqBody, checkUsernameExists, checkRole, checkUserId, checkUsernameValid, checkPasswordValid} = require('./users-middleware.js');
 const Users = require('./users-model.js');
 const bcrypt = require('bcryptjs');
 
@@ -16,7 +16,7 @@ router.post('/register', validReqBody, checkUsernameExists, checkRole, (req, res
          .catch(err => next(err))
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', checkUserId, (req, res) => {
     const {id} = req.params
     Users.findById(id)
          .then(user => {
@@ -24,7 +24,6 @@ router.get('/:id', (req, res) => {
          })
          .catch(err => next(err))
 })
-
 
 router.post('/login', validReqBody, checkUsernameValid, checkPasswordValid, (req, res) => {})
 
